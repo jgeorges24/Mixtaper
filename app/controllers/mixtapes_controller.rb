@@ -38,7 +38,7 @@ class MixtapesController < ApplicationController
 
     def update 
 
-        @mixtape = Tape.find_by(id: params[:id])
+        @mixtape = Mixtape.find_by(id: params[:id])
         @mixtape.update(mixtape_params)
 
             if @mixtape.valid?
@@ -51,10 +51,15 @@ class MixtapesController < ApplicationController
         @mixtapes = Mixtape.all
     end
 
+
+
+
+
+
     private
     #stronger params
-    def tape_params#(*args)
-        params.require(:tape).permit(:title, :artist, :features, :artcover, :genre)#(*args)
+    def mixtape_params#(*args)
+        params.require(:mixtape).permit(:title, :artist, :features, :artcover, :genre)#(*args)
     end
 
 end
