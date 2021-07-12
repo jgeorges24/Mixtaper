@@ -6,9 +6,9 @@ class MixtapesController < ApplicationController
         @mixtapes = Mixtape.all
     end
 
-    def show
-        @mixtape = Mixtape.find_by(id: params [:id])
-    end
+    # def show
+    #     @mixtape = Mixtape.find_by(id: params [:id])
+    # end
 
     def new 
 
