@@ -6,9 +6,9 @@ class MixtapesController < ApplicationController
         @mixtapes = Mixtape.all
     end
 
-    # def show
-    #     @mixtape = Mixtape.find_by(id: params [:id])
-    # end
+    def show
+        @mixtape = Mixape.find_by(id: params[:id])
+    end
 
     def new 
 
@@ -16,6 +16,45 @@ class MixtapesController < ApplicationController
 
     end
 
+    def create 
 
+        @mixtape = Mixtape.new(mixtape_params)
+
+        if @mixtape.save
+            redirect_to mixtape_path(@mixtape)
+        else
+            #flash message
+            redirect_to new_mixtape_path
+        end
+    end
+
+
+    def edit 
+
+        @mixtape = Mixtape.find_by(id: params[:id])
+
+    end
+
+
+    def update 
+
+        @mixtape = Tape.find_by(id: params[:id])
+        @mixtape.update(mixtape_params)
+
+            if @mixtape.valid?
+                redirect_to @mixtape
+            end
+        end
+    end
+
+    def home
+        @mixtapes = Mixtape.all
+    end
+
+    private
+    #stronger params
+    def tape_params#(*args)
+        params.require(:tape).permit(:title, :artist, :features, :artcover, :genre)#(*args)
+    end
 
 end
