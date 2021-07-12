@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_145655) do
+ActiveRecord::Schema.define(version: 2021_07_12_223250) do
 
   create_table "mixtapes", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 2021_07_12_145655) do
     t.string "artcover"
     t.integer "likes", default: 0
     t.string "features"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "username"
+    t.string "password_digest"
+    t.string "email"
+    t.string "uid"
+    t.string "provider"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
