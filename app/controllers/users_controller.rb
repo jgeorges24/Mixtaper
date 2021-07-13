@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     end
 
     def show
-
+        #must add this route in routes.rb to work
         @user = User.find_by(username: params[:user][:username])
         @mixtapes = user.mixtape
 
