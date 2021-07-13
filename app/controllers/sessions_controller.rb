@@ -22,5 +22,6 @@ class SessionsController < ApplicationController
   end
 
   def welcome
+    
   end
 end

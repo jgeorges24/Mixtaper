@@ -44,17 +44,12 @@ class MixtapesController < ApplicationController
             if @mixtape.valid?
                 redirect_to @mixtape
             end
-        end
+
     end
 
     def home
         @mixtapes = Mixtape.all
     end
-
-
-
-
-
 
     private
     #stronger params

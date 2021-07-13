@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   
   resources :users, only: [:new, :create]
+
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
   
   get 'login',  to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
-  
+
+ #homepage static element/page
+    root('sessions#welcome')
 
   #resources :users
   resources :mixtapes
