@@ -32,7 +32,7 @@ def create
     if @user.save
         flash[:message] = "Sign Up Success!"
         session[:user_id] = @user.id
-        redirect_to tapes_path
+        redirect_to mixtapes_path
     else
         flash[:message] = @user.errors.full_messages.to_sentence
         #flash[:message] = "missing info"
