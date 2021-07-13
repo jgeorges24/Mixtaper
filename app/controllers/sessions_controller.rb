@@ -21,7 +21,12 @@ class SessionsController < ApplicationController
   def login
   end
 
+  def logout
+    session.clear
+    redirect_to login_path
+end
+
   def welcome
-    
+    #add some stuff to show on the home page other than login and sign up
   end
 end
