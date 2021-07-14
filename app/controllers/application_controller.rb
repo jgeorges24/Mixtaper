@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     end
     
     def mixtape_true_creator
-        @tape = Mixtape.find_by(id: params[:id])
+        @mixtape = Mixtape.find_by(id: params[:id])
         @current_user == @mixtape.user
 
     end
