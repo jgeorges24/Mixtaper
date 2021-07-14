@@ -8,7 +8,10 @@ class SessionsController < ApplicationController
         
      if @user && @user.authenticate(params[:user][:password])
         flash[:message] = "login successful"
+
+
         session[:user_id] = @user.id
+        
         redirect_to mixtapes_path
 
      else
@@ -19,6 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def login
+   
   end
 
   def logout

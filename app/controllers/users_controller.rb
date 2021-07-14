@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     def index
+        
         @users = User.all
     end
 
@@ -22,7 +23,9 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
             if @user.save
                 #add flash message
-                #session[:user_id] = @user.id
+                
+                session[:user_id] = @user.id
+                #binding.pry
                 redirect_to mixtapes_path
             else
                 #flash[:message] = @user.errors.full_messages.to_sentence
