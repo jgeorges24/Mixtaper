@@ -1,5 +1,15 @@
 <h1>Mixtapes#index</h1>
 <p>Find me in app/views/mixtapes/index.html.erb</p>
 
+<div>
+    <H1> WELCOME BACK: <%= @current_user.name %> </H1>
 
-<%= @mixtape %>
+</div>
+
+<ul>
+<% @mixtapes.each do |tap| %>
+    <li> <%= link_to(tap.title, mixtape_path(tap)) %> - created by: <%=tap.user.name %> <br> uploaded - <%=tap.uploaded_at %> </li>
+    
+<% end %>
+
+</ul>
