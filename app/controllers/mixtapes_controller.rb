@@ -1,7 +1,7 @@
 class MixtapesController < ApplicationController
     before_action :redirect_if_not_logged, only: [:new, :create, :edit, :update, :index, :home]
 
-    helper_method :current_user, :logged_in?, :logged_out?
+    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged
 
     def index
         @mixtapes = Mixtape.includes(:user)
@@ -12,6 +12,7 @@ class MixtapesController < ApplicationController
     
     def show
         @mixtape = Mixtape.find_by(id: params[:id])
+        current_user
     end
 
 

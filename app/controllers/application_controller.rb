@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :logged_in?, :logged_out?
+    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator
 
 
     
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_if_logged
-        redirect_to mixtapes_path if logged_in?
+        redirect_to user_mixtapes_path(current_user) if logged_in?
     end
     
     def mixtape_true_creator

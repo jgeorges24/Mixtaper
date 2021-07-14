@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
         session[:user_id] = @user.id
         
-        redirect_to mixtapes_path
+        redirect_to user_mixtapes_path(current_user)
 
      else
         flash[:message] = "login not good"
