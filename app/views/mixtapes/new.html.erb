@@ -1,10 +1,10 @@
 <h1>Mixtapes#new</h1>
 <p>Find me in app/views/mixtapes/new.html.erb</p>
+
+
 <h1>     CREATE MIXTAPE    </h1>
 
-
-
-<%= form_with(model: @mixtape) do |f| %>
+<%= form_with(model: @mixtape, url: new_mixtape_path) do |f| %>
     <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
