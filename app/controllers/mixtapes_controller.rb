@@ -21,12 +21,12 @@ class MixtapesController < ApplicationController
         
         # @mixtape = current_user.created_tapes.build(tape_params)
         
-        if @tape.save
-            redirect_to tape_path(@tape)
+        if @mixtape.save
+            redirect_to tape_path(@mixtape)
         else
-            flash[:message] = @tape.errors.full_messages.to_sentence 
-            redirect_to new_tape_path
-    
+            flash[:message] = @mixtape.errors.full_messages.to_sentence 
+            redirect_to new_mixtape_path
+        end
     
     end
     
@@ -34,7 +34,26 @@ class MixtapesController < ApplicationController
         @mixtape = Mixtape.find_by(id: params[:id])
 
     end
-  
+    
+    def update
+
+        @mixtape = Mixtape.find_by(id: params[:id])
+        @mixtape.update(mixtape_params)
+        if @mixtape.valid?
+            redirect_to Mixtape
+            #above made adjustment with rails magic 
+        end
+
+    end
+
+    def destroy
+
+        @mixtape = Mixtape.find_by(id: params[:id])
+        @mixtape.destroy
+        redirect_to mixtapes_path
+
+    end
+
     def recent_mixtape
         @mixtapes = Mixtape.recent_mixtape
 
