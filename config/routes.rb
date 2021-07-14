@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  
-  get 'mixtape/edit'
-  get 'mixtape/new'
-  get 'mixtape/recent_mixtape'
-  get 'mixtape/search'
-  get 'mixtape/show'
+
   resources :users, only: [:new, :create]
 
   get '/signup', to: 'users#new'
