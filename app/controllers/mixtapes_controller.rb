@@ -17,20 +17,20 @@ class MixtapesController < ApplicationController
 
     def new
 
-        @mixtape = Mixtape.new
+        @mixtape = Mixtape.new(user_id: params[:user_id])
         
     end
 
     def create
         @mixtape = Mixtape.new(mixtape_params)
         
-        #@mixtape = current_user.created_tapes.build(mixtape_params)
+        #@mixtape = current_user.mixtapes.build(mixtape_params)
         
         if @mixtape.save
-            redirect_to mixtape_path(@mixtape)
+            redirect_to user_mixtape_path(current_user, @mixtape)
         else
             flash[:message] = @mixtape.errors.full_messages.to_sentence 
-            redirect_to new_mixtape_path
+            redirect_to new_user_mixtape_path(current_user)
         end
     
     end
@@ -73,7 +73,7 @@ class MixtapesController < ApplicationController
     private
     
     def mixtape_params#(*args)
-         params.require(:mixtape).permit(:title, :artist, :features, :artcover, :genre)
+         params.require(:mixtape).permit(:title, :artist, :features, :artcover, :genre, :user_id)
         #params.require(:mixtape).permit(*args)
     end
 
