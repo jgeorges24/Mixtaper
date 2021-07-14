@@ -55,12 +55,18 @@ class MixtapesController < ApplicationController
 
         @mixtapes = Mixtape.recent_mixtape
 
-
     end
 
     def Search
 
         @tapes = Tape.search(params[:title])
+
+    end
+
+    def destroy 
+        @mixtape = Mixtape.find_by(id: params[:id])
+        @mixtape.destroy
+        redirect_to mixtapes_path
 
     end
 

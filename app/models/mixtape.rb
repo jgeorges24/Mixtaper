@@ -8,7 +8,8 @@ class Mixtape < ApplicationRecord
     end
 
     scope :most_recent, -> {order created_at: :desc}
-    
+
+    scope :search, -> (query) {where("title LIKE ?", "%#{query}%") }
 
 
 

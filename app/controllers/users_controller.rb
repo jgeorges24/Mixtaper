@@ -28,7 +28,7 @@ class UsersController < ApplicationController
                 #binding.pry
                 redirect_to mixtapes_path
             else
-                #flash[:message] = @user.errors.full_messages.to_sentence
+                flash[:message] = @user.errors.full_messages.to_sentence
                 render :new
             end
 

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/welcome', to: 'sessions#welcome'
   get '/logout', to: 'sessions#logout'
 
+
+  get '/search', to: 'mixtapes#search'
   get '/recent_mixtape', to: 'mixtapes#recent_mixtape'
 
  #homepage static element/page
@@ -17,6 +19,9 @@ Rails.application.routes.draw do
 
   #resources :users
   resources :mixtapes
+
+
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 
