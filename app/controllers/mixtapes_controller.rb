@@ -4,8 +4,8 @@ class MixtapesController < ApplicationController
     helper_method :current_user, :logged_in?, :logged_out?
 
     def index
-        #@mixtapes = Mixtape.includes(:user)
-        @mixtapes = Mixtape.all
+        @mixtapes = Mixtape.includes(:user)
+        #@mixtapes = Mixtape.all
         current_user
         # @current_user ||= User.find_by_id(session[:user_id]) 
     end
@@ -22,9 +22,9 @@ class MixtapesController < ApplicationController
     end
 
     def create
-        #@mixtape = Mixtape.new(mixtape_params)
+        @mixtape = Mixtape.new(mixtape_params)
         
-        @mixtape = current_user.created_tapes.build(mixtape_params)
+        #@mixtape = current_user.created_tapes.build(mixtape_params)
         
         if @mixtape.save
             redirect_to mixtape_path(@mixtape)
@@ -45,7 +45,7 @@ class MixtapesController < ApplicationController
         @mixtape = Mixtape.find_by(id: params[:id])
         @mixtape.update(mixtape_params)
         if @mixtape.valid?
-            redirect_to Mixtape
+            redirect_to @Mixtape
             #above made adjustment with rails magic 
         end
 

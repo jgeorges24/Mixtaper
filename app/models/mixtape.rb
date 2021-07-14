@@ -1,8 +1,8 @@
 class Mixtape < ApplicationRecord
+    validates :title, :artist, presence: true
 
     belongs_to :user
     
-    validates :title, :artist, presence: true
 
     def uploaded_at
         self.created_at.to_date

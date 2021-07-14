@@ -1,6 +1,17 @@
 class SessionsController < ApplicationController
+  before_action :redirect_if_not_logged, only: [:destroy]
+  
+  before_action :redirect_if_logged, only: [:new, :create]
+  
+  
+  
   def new
-    render :new
+    
+  end
+
+  def destroy
+    session.destroy
+    #redirect_to  
   end
 
   def create
@@ -20,6 +31,7 @@ class SessionsController < ApplicationController
         render :new
      end
   end
+
 
   def login
    

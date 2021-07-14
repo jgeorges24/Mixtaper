@@ -1,16 +1,18 @@
 class UsersController < ApplicationController
+    before_action :redirect_if_logged, only: [:new, :create, :show, :index]
+
 
     def index
         
         @users = User.all
     end
 
-    def show
-        #must add this route in routes.rb to work
-        @user = User.find_by(username: params[:user][:username])
-        @mixtapes = user.mixtape
+    # def show
+    #     #must add this route in routes.rb to work
+    #     @user = User.find_by(username: params[:user][:username])
+    #     @mixtapes = user.mixtape
 
-    end
+    # end
 
     def new
 

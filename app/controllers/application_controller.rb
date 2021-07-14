@@ -25,6 +25,17 @@ class ApplicationController < ActionController::Base
     def redirect_if_logged
         redirect_to mixtapes_path if logged_in?
     end
+    
+    def mixtape_true_creator
+        @tape = Mixtape.find_by(id: params[:id])
+        @current_user == @mixtape.user
 
+    end
+
+    def not_mixtape_true_creator
+        @mixtape = Mixtape.find_by(id: params[:id])
+        @current_user != @mixtape.user
+        redirect_to mixtapes_path(@mixtape)
+    end
 
 end
