@@ -1,2 +1,11 @@
 <h1>Mixtapes#search</h1>
 <p>Find me in app/views/mixtapes/search.html.erb</p>
+
+<ul>
+<% @mixtapes.each do |tap| %>
+    <li> <%= link_to tap.title, tap %> </li>
+    
+<% end %>
+
+
+</ul>
