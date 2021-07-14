@@ -51,6 +51,8 @@ class MixtapesController < ApplicationController
         @mixtapes = Mixtape.all
     end
 
+    
+
     private
     #stronger params
     def mixtape_params#(*args)

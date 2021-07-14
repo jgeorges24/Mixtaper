@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   
-  get 'login',  to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  get 'welcome', to: 'sessions#welcome'
-  get 'logout', to: 'sessions#logout'
+  get '/login',  to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/welcome', to: 'sessions#welcome'
+  get '/logout', to: 'sessions#logout'
+
+  get '/recent_mixtape', to: 'mixtapes#recent_mixtape'
 
  #homepage static element/page
     root('sessions#welcome')

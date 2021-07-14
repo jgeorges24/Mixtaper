@@ -7,6 +7,9 @@ class Mixtape < ApplicationRecord
         self.created_at.to_date
     end
 
+    scope :most_recent, -> {order created_at: :desc}
+    
+
 
 
 end
