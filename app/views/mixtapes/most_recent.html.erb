@@ -1,0 +1,14 @@
+<h1>Mixtapes#recent_mixtape</h1>
+<p>Find me in app/views/mixtapes/recent_mixtape.html.erb</p>
+
+
+<h1> The Recent MIXTAPES THAT CAME OUT DESCENDING ORDER </h1>
+
+<ul>
+<% @mixtapes.each do |tap| %>
+    <li> <%= link_to(tap.title, mixtape_path(tap)) %> - created by: <%=mixtape.user.username %> <br> uploaded - <%=tap.uploaded_at %> </li>
+    
+<% end %>
+
+
+</ul>

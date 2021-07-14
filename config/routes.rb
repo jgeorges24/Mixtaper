@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
   get '/search', to: 'mixtapes#search'
-  get '/recent_mixtape', to: 'mixtapes#recent_mixtape'
+  get '/recent_mixtape', to: 'mixtapes#most_recent'
 
  #homepage static element/page
     root('sessions#welcome')

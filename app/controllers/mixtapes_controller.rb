@@ -20,9 +20,9 @@ class MixtapesController < ApplicationController
     end
 
     def create
-        @mixtape = Mixtape.new(mixtape_params)
+        #@mixtape = Mixtape.new(mixtape_params)
         
-        # @mixtape = current_user.created_tapes.build(tape_params)
+        @mixtape = current_user.created_tapes.build(mixtape_params)
         
         if @mixtape.save
             redirect_to mixtape_path(@mixtape)
@@ -57,8 +57,8 @@ class MixtapesController < ApplicationController
 
     end
 
-    def recent_mixtape
-        @mixtapes = Mixtape.recent_mixtape
+    def most_recent
+        @mixtapes = Mixtape.most_recent
 
     end
 
@@ -70,9 +70,9 @@ class MixtapesController < ApplicationController
 
     private
     
-    def mixtape_params(*args)
-        # params.require(:tape).permit(:title, :artist, :features, :artcover, :genre)
-        params.require(:mixtape).permit(*args)
+    def mixtape_params#(*args)
+         params.require(:mixtape).permit(:title, :artist, :features, :artcover, :genre)
+        #params.require(:mixtape).permit(*args)
     end
 
 

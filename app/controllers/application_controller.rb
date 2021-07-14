@@ -18,5 +18,13 @@ class ApplicationController < ActionController::Base
         !current_user
     end
 
+    def redirect_if_not_logged
+        redirect_to login_path if !logged_in?
+    end
+
+    def redirect_if_logged
+        redirect_to mixtapes_path if logged_in?
+    end
+
 
 end
