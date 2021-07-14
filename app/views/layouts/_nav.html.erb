@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           
-          #<% if logged_in? %>
+          <% if logged_in? %>
             <li class="nav-item">
               <%= link_to 'home', root_path, class: 'nav-link active' %>
             </li>
@@ -31,8 +31,8 @@
                 <%= f.submit :Submit, class: "form-control me-2" %>
                 <%end%>
               
-           # <%end%>
-            #<% if logged_out? %>
+            <%end%>
+            <% if logged_out? %>
 
               <li class="nav-item">
                 <%= link_to 'login', login_path %> 
@@ -43,7 +43,7 @@
             #   <li class="nav-item">
             #     <%= link_to 'Google Sign Up', "/auth/google_oauth2", method: "post" %> 
             #   </li>
-            #<% end %>
+            <% end %>
           
         </div>
       </div>

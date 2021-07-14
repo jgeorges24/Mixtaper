@@ -22,7 +22,7 @@ class MixtapesController < ApplicationController
         # @mixtape = current_user.created_tapes.build(tape_params)
         
         if @mixtape.save
-            redirect_to tape_path(@mixtape)
+            redirect_to mixtape_path(@mixtape)
         else
             flash[:message] = @mixtape.errors.full_messages.to_sentence 
             redirect_to new_mixtape_path
@@ -69,7 +69,7 @@ class MixtapesController < ApplicationController
     
     def mixtape_params(*args)
         # params.require(:tape).permit(:title, :artist, :features, :artcover, :genre)
-        (*args)
+        params.require(:mixtape).permit(*args)
     end
 
 

@@ -1,2 +1,26 @@
 <h1>Mixtapes#show</h1>
 <p>Find me in app/views/mixtapes/show.html.erb</p>
+<h1> Created MixTape Show Page </h1>
+
+<div> 
+<H4> UPLOADED BY </H4>
+<p> USERNAME: @mixtape.user.name %> </p>
+
+</div>
+
+--------------------------------------------------------
+<br>
+
+ <div>
+    
+    <h1><%= @mixtape.title %></h1>
+    
+    <p> artist: <%= @mixtape.artist %> </p>
+    
+    <p>features: <%= @mixtape.features %> </p>
+    
+    <p> genre: <%= @mixtape.genre %> </P>
+    
+    <p> <%= @mixtape.uploaded_at %> </p>
+    
+</div>

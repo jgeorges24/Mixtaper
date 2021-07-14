@@ -4,7 +4,7 @@
 
 <h1>     CREATE MIXTAPE    </h1>
 
-<%= form_with(model: @mixtape, url: new_mixtape_path) do |f| %>
+<%= form_with(model: @mixtape) do |f| %>
     <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
