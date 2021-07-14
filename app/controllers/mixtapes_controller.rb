@@ -51,7 +51,18 @@ class MixtapesController < ApplicationController
         @mixtapes = Mixtape.all
     end
 
-    
+    def recent_mixtape
+
+        @mixtapes = Mixtape.recent_mixtape
+
+
+    end
+
+    def Search
+
+        @tapes = Tape.search(params[:title])
+
+    end
 
     private
     #stronger params
