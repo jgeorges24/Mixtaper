@@ -1,0 +1,1 @@
+need to check out urls for nested route because show page and index page are reflecting different creators 

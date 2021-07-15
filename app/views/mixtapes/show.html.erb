@@ -4,7 +4,7 @@
 
 <div> 
 <H4> UPLOADED BY </H4>
-<p> USERNAME: @mixtape.user.name %> </p>
+<p> USERNAME: <%= @mixtape.user.name %> </p>
 
 </div>
 
@@ -21,6 +21,13 @@
     
     <p> genre: <%= @mixtape.genre %> </P>
     
-    <p> <%= @mixtape.uploaded_at %> </p>
+    <p> uploaded: <%= @mixtape.uploaded_at %> </p>
     
 </div>
+
+<% if mixtape_true_creator%>
+<%= link_to 'Edit Mixtape', edit_user_mixtape_path(@mixtape) %>
+<% end %>
+<br>
+<%= link_to 'View All Mixtapes', user_mixtapes_path %> 
+<br>

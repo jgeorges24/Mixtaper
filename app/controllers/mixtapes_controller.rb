@@ -7,11 +7,12 @@ class MixtapesController < ApplicationController
         @mixtapes = Mixtape.includes(:user)
         #@mixtapes = Mixtape.all
         current_user
-        # @current_user ||= User.find_by_id(session[:user_id]) 
+        #@current_user ||= User.find_by_id(session[:user_id]) 
     end
     
     def show
         @mixtape = Mixtape.find_by(id: params[:id])
+        #binding.pry
         current_user
     end
 

@@ -12,17 +12,22 @@
               <%= link_to 'home', root_path, class: 'nav-link active' %>
             </li>
 
-              <li>
-                <%= link_to 'Create Mixtape', new_user_mixtape_path(current_user), class: 'nav-item' %> 
-              </li>
-              <li>
-                <%= link_to 'Recent Release', recent_mixtape_path, class: 'nav-item' %> 
-              </li>
-             
-              <li class="nav-item">
-              <%= link_to 'logout', logout_path, method: "delete" %> 
-              </li>
             
+            <li>
+            <%= link_to 'Create Mixtape', new_user_mixtape_path(current_user), class: 'nav-item' %> 
+            </li>
+            <li>
+            <%= link_to 'Recent Release', recent_mixtape_path, class: 'nav-item' %> 
+            </li>
+            
+            <li class="nav-item">
+            <%= link_to 'logout', logout_path, method: "delete" %> 
+            
+            </li>
+            Logged in as:
+            <li class="nav-item">
+            <%= current_user.name %>
+            </li>
               
               </ul>
             
