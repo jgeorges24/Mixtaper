@@ -1,9 +1,10 @@
 class MixtapesController < ApplicationController
     before_action :redirect_if_not_logged, only: [:new, :create, :edit, :update, :index, :home, :logout]
 
-    before_action :not_mixtape_true_creator, only: [:edit, :update, :destroy]
+    before_action :mixtape_true_creator,:no_go, only: [:edit, :update, :destroy]
 
-    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator
+    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator, :not_mixtape_true_creator, :no_go
+
 
     def index
         @mixtapes = Mixtape.includes(:user)
