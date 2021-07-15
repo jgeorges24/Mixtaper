@@ -1,5 +1,5 @@
 class MixtapesController < ApplicationController
-    before_action :redirect_if_not_logged, only: [:new, :create, :edit, :update, :index, :home]
+    before_action :redirect_if_not_logged, only: [:new, :create, :edit, :update, :index, :home, :logout]
 
     helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged
 
