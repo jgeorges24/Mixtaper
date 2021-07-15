@@ -1,0 +1,8 @@
+<li>
+    <%= opinion.user.name %> - 
+    <%= opinion.context %><br>
+    <%= opinion.created_at%> <br>
+   <% if mixtape_true_creator || true_user_opinion %>
+    <%= link_to 'remove', opinion_path(opinion.mixtape, opinion), method: "delete" %>  
+    <% end %>
+</li>

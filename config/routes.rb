@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :opinions
   resources :users, only: [:new, :create] do
     resources :mixtapes
   end

@@ -2,6 +2,8 @@ class Mixtape < ApplicationRecord
     validates :title, :artist, presence: true
 
     belongs_to :user
+    has_many :opinions
+    
     
 
     def uploaded_at
