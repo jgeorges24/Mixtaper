@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     def not_mixtape_true_creator
         @mixtape = Mixtape.find_by(id: params[:id])
         @current_user != @mixtape.user
-        redirect_to mixtapes_path(@mixtape)
+        redirect_to user_mixtapes_path(@mixtape)
     end
 
 end

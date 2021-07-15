@@ -1,7 +1,9 @@
 class MixtapesController < ApplicationController
     before_action :redirect_if_not_logged, only: [:new, :create, :edit, :update, :index, :home, :logout]
 
-    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged
+    before_action :not_mixtape_true_creator, only: [:edit, :update, :destroy]
+
+    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator
 
     def index
         @mixtapes = Mixtape.includes(:user)
@@ -24,6 +26,7 @@ class MixtapesController < ApplicationController
     end
 
     def create
+
         @mixtape = Mixtape.new(mixtape_params)
         
         #@mixtape = current_user.mixtapes.build(mixtape_params)
@@ -38,6 +41,7 @@ class MixtapesController < ApplicationController
     end
     
     def edit
+         
         @mixtape = Mixtape.find_by(id: params[:id])
 
     end
@@ -47,7 +51,7 @@ class MixtapesController < ApplicationController
         @mixtape = Mixtape.find_by(id: params[:id])
         @mixtape.update(mixtape_params)
         if @mixtape.valid?
-            redirect_to @Mixtape
+            redirect_to user_mixtapes_path
             #above made adjustment with rails magic 
         end
 
@@ -57,7 +61,7 @@ class MixtapesController < ApplicationController
 
         @mixtape = Mixtape.find_by(id: params[:id])
         @mixtape.destroy
-        redirect_to mixtapes_path
+        redirect_to user_mixtapes_path
 
     end
 
