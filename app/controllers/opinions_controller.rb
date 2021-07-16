@@ -2,7 +2,7 @@ class OpinionsController < ApplicationController
 
     before_action :redirect_if_not_logged, only: [:create, :update, :destroy, :edit]
 
-    helper_method :not_user_opinion, :true_user_opinion, :tape_Opinion_count, :not_mixtape_true_creator
+  
 
 
    
@@ -47,11 +47,15 @@ class OpinionsController < ApplicationController
     end
 
     def destroy
-        @mixtape = Mixtape.find_by(id: params[:id])
-        @opinion = @mixtape.opinions.find_by(params[:id])
+        #binding.pry
+        @opinion = Opinion.find(params[:id])
+        @mixtape = Mixtape.find(@opinion.mixtape.id)
+        @user = User.find(@opinion.mixtape.user.id)
+        #@opinion = @mixtape.opinions.find(mixtape_id: params[:id])
+        #@opinion = Opinion.find_by(id: params[:id])
         @opinion.destroy
         flash[:message] = "opinion removed"
-        redirect_to user_mixtape_path(@mixtape)
+        redirect_to user_mixtape_path(@user, @mixtape)
         #try using just tape to test out rails magic
     end
 

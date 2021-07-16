@@ -24,11 +24,10 @@ class UsersController < ApplicationController
         
         @user = User.new(user_params)
             if @user.save
-                #add flash message
-                
+                flash[:message] = "user created"
                 session[:user_id] = @user.id
                 #binding.pry
-                redirect_to user_mixtapes_path
+                redirect_to recent_mixtape_path
             else
                 flash[:message] = @user.errors.full_messages.to_sentence
                 render :new
@@ -40,7 +39,7 @@ class UsersController < ApplicationController
     private
     def user_params
 
-        params.require(:user).permit(:name, :username, :password, :email)
+        params.require(:user).permit(:name, :username, :password, :email, :user_id)
 
     end
 

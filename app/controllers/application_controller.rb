@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_if_logged
+        flash[:message] = "already logged in"
         redirect_to user_mixtapes_path(current_user) if logged_in?
     end
     
@@ -63,8 +64,9 @@ class ApplicationController < ActionController::Base
     end
     
         def true_user_opinion
-            @mixtape = Mixtape.find_by( id: params[:id])
-            @current_user.opinions == @mixtape.user.opinions
+            @mixtape = Mixtape.find_by(id: params[:id])
+            @opinion = @mixtape.opinions.find_by_id(params[:user_id])
+            @current_user == @mixtape.opinions
         end
     
         def tape_Opinion_count
