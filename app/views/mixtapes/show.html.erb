@@ -31,11 +31,20 @@
 <br>
 <%= link_to 'View All Mixtapes', user_mixtapes_path %> 
 <br>
+-----------------------------
+
+<%= form_with(model:[@mixtape, @mixtape.opinions]) do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :mixtape_id, value: @mixtape.id %>
+    <%= f.text_area :context %>
+    <%= f.submit :opinion %>
+<% end %>
 
 -----------------------------
-<h1> comments section </h1>
+<h1> "opinion's section" </h1>
 
-<% @mixtape.opinions.each | x | do
+<ul>
 
+    <%= render @opinions %>
 
-    <% end %>
+</ul>

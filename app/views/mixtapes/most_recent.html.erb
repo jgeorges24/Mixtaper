@@ -6,7 +6,7 @@
 
 <ul>
 <% @mixtapes.each do |tap| %>
-    <li> <%= link_to(tap.title, user_mixtape_path(@mixtapes, tap)) %> <br> uploaded - <%=tap.uploaded_at %> </li>
+    <li> <%= link_to(tap.title, user_mixtape_path(tap.user, tap)) %> <br> uploaded - <%=tap.uploaded_at %> </li>
     
 <% end %>
 

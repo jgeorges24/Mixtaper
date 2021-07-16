@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator, :not_mixtape_true_creator
+    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator, :not_mixtape_true_creator, :not_user_opinion, :true_user_opinion, :tape_Opinion_count, :no_go
 
 
 
@@ -50,5 +50,28 @@ class ApplicationController < ActionController::Base
         redirect_to user_mixtapes_path
 
     end
+
+    def not_user_opinion
+        @mixtape = Mixtape.find_by(id: params[:tape_id])
+        if @current_user.opinions != @mixtape.user.opinions
+        flash[:message] = "opinion NOT yours"
+    
+        redirect_to tape_path(@mixtape)
+        else
+            flash[:message] = "opinion deleted"
+        end   
+    end
+    
+        def true_user_opinion
+            @mixtape = Mixtape.find_by(params[:mixtape_id])
+            @current_user == @mixtape.user
+        end
+    
+        def tape_Opinion_count
+            @mixtape = Mixtape.find_by(id: params[:id])
+            @mixtape.opinions.count
+    
+        end
+
 
 end
