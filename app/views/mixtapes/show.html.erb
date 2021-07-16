@@ -33,7 +33,7 @@
 <br>
 -----------------------------
 
-<%= form_with(model:[@mixtape, @mixtape.opinions]) do |f| %>
+<%= form_with(model: Opinion.new, url: opinions_path) do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :mixtape_id, value: @mixtape.id %>
     <%= f.text_area :context %>
@@ -44,7 +44,17 @@
 <h1> "opinion's section" </h1>
 
 <ul>
+    <% @mixtape.opinions.each do |opinion| %>
+        
+    <li>
+        <%= opinion.user.name %> - 
+        <%= opinion.context %><br>
+        <%= opinion.created_at%> <br>
+       <% if mixtape_true_creator || true_user_opinion %>
+        <%= link_to 'remove', opinion_path(opinion.mixtape, opinion), method: "delete" %>  
+        <% end %>
+    </li>
 
-    <%= render @opinions %>
+    <% end %>
 
 </ul>

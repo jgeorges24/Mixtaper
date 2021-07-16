@@ -52,19 +52,19 @@ class ApplicationController < ActionController::Base
     end
 
     def not_user_opinion
-        @mixtape = Mixtape.find_by(id: params[:tape_id])
+        @mixtape = Mixtape.find_by(id: params[:mixtape_id])
         if @current_user.opinions != @mixtape.user.opinions
         flash[:message] = "opinion NOT yours"
     
-        redirect_to tape_path(@mixtape)
+        redirect_to user_mixtape_path(@mixtape)
         else
             flash[:message] = "opinion deleted"
         end   
     end
     
         def true_user_opinion
-            @mixtape = Mixtape.find_by(params[:mixtape_id])
-            @current_user == @mixtape.user
+            @mixtape = Mixtape.find_by( id: params[:id])
+            @current_user.opinions == @mixtape.user.opinions
         end
     
         def tape_Opinion_count
