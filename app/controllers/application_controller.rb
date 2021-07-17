@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator, :not_mixtape_true_creator, :not_user_opinion, :true_user_opinion, :tape_Opinion_count, :no_go
+    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator, :not_mixtape_true_creator, :not_user_opinion, :true_user_opinion, :tape_Opinion_count, :no_go, :the_mixtape, :the_opinion, :the_user
 
 
 
@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
 
     def redirect_if_logged
         #flash[:message] = "already logged in"
+
         redirect_to user_mixtapes_path(current_user) if logged_in?
     end
     
@@ -73,6 +74,24 @@ class ApplicationController < ActionController::Base
             @mixtape = Mixtape.find_by(id: params[:id])
             @mixtape.opinions.count
     
+        end
+
+        def the_opinion
+
+            @opinion = Opinion.find(params[:id])
+
+        end
+
+        def the_mixtape
+
+            @mixtape = Mixtape.find(@opinion.mixtape.id)
+
+        end
+
+        def the_user
+
+            @user = User.find(@opinion.mixtape.user.id)
+
         end
 
 

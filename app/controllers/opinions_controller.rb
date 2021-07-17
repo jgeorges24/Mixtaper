@@ -1,4 +1,5 @@
 class OpinionsController < ApplicationController
+helper_method :the_mixtape, :the_opinion, :the_user
 
     before_action :redirect_if_not_logged, only: [:create, :update, :destroy, :edit]
 
@@ -44,9 +45,12 @@ class OpinionsController < ApplicationController
 
     def destroy
         #binding.pry
-        @opinion = Opinion.find(params[:id])
-        @mixtape = Mixtape.find(@opinion.mixtape.id)
-        @user = User.find(@opinion.mixtape.user.id)
+        the_opinion
+        the_mixtape
+        the_user
+        # @opinion = Opinion.find(params[:id])
+        # @mixtape = Mixtape.find(@opinion.mixtape.id)
+        # @user = User.find(@opinion.mixtape.user.id)
         #@opinion = @mixtape.opinions.find(mixtape_id: params[:id])
         #@opinion = Opinion.find_by(id: params[:id])
         @opinion.destroy
@@ -55,7 +59,7 @@ class OpinionsController < ApplicationController
         #try using just tape to test out rails magic
     end
     
-    
+
     private
     #Strong params to keep uneeded requests
     def opinion_params

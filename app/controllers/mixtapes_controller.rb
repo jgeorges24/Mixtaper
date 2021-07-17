@@ -3,7 +3,7 @@ class MixtapesController < ApplicationController
 
     before_action :mixtape_true_creator,:no_go, only: [:edit, :update]
 
-    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator, :not_mixtape_true_creator, :no_go, :not_user_opinion, :true_user_opinion, :tape_Opinion_count
+    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator, :not_mixtape_true_creator, :no_go, :not_user_opinion, :true_user_opinion, :tape_Opinion_count, :the_mixtape, :the_opinion, :the_user
 
 
     def index
