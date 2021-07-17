@@ -2,9 +2,6 @@ class OpinionsController < ApplicationController
 
     before_action :redirect_if_not_logged, only: [:create, :update, :destroy, :edit]
 
-  
-
-
    
     def index
             if params[:mixtape_id] && @mixtape = Mixtape.find_by_id(params[:mixtape_id])
@@ -21,7 +18,6 @@ class OpinionsController < ApplicationController
         @opinion = @mixtape.opinions.find_by(params [:mixtape_id])
 
     end
-
 
     def new
         
@@ -58,8 +54,7 @@ class OpinionsController < ApplicationController
         redirect_to user_mixtape_path(@user, @mixtape)
         #try using just tape to test out rails magic
     end
-
-
+    
     
     private
     #Strong params to keep uneeded requests

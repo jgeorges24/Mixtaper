@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     # end
 
     def new
-
+        #comented this out so data is not generated when new signup renders
         @user = User.new
 
     end

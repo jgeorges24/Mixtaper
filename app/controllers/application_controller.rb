@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_if_logged
-        flash[:message] = "already logged in"
+        #flash[:message] = "already logged in"
         redirect_to user_mixtapes_path(current_user) if logged_in?
     end
     
