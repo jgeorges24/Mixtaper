@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :redirect_if_logged, only: [:new, :create, :show, :index]
-
+    
+    skip_before_action :authorized, only: [:new, :create]
 
     # def index
         

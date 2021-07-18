@@ -3,7 +3,8 @@ class SessionsController < ApplicationController
   
   before_action :redirect_if_logged, only: [:new, :create]
   
-  
+  skip_before_action :authorized, only: [:new, :create, :welcome]
+
   
   def new
     

@@ -59,6 +59,14 @@ helper_method :the_mixtape, :the_opinion, :the_user
         redirect_to user_mixtape_path(@user, @mixtape)
         #try using just tape to test out rails magic
     end
+
+    # def popular_tape
+    #     @mixtape = Mixtape.all
+    #     @user = current_user
+    
+    # end
+
+    
     
 
     private

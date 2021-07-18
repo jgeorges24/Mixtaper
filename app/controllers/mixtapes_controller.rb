@@ -76,6 +76,13 @@ class MixtapesController < ApplicationController
         @mixtapes = Mixtape.search(params[:title])
     end
 
+    # def popular_tape
+    #     @mixtape = Mixtape.all.order(:opinion DESC )
+    #     @user = current_user
+    
+    # end
+
+   
 
     private
     

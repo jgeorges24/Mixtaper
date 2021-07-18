@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#logout"
   get '/logout', to: 'sessions#logout'
 
+  get '/popular_mixtape', to: 'mixtapes#popular_tape'
+
 
   get '/search', to: 'mixtapes#search'
   get '/recent_mixtape', to: 'mixtapes#most_recent'
