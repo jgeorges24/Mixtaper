@@ -2,10 +2,10 @@ class UsersController < ApplicationController
     before_action :redirect_if_logged, only: [:new, :create, :show, :index]
 
 
-    def index
+    # def index
         
-        @users = User.all
-    end
+    #     @users = User.all
+    # end
 
     # def show
     #     #must add this route in routes.rb to work

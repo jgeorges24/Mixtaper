@@ -23,7 +23,8 @@ Rails.application.routes.draw do
  #homepage static element/page
     root('sessions#welcome')
 
-    
+        #ominauth
+        get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
      
 
 

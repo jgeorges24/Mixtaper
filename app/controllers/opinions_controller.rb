@@ -4,25 +4,25 @@ helper_method :the_mixtape, :the_opinion, :the_user
     before_action :redirect_if_not_logged, only: [:create, :update, :destroy, :edit]
 
    
-    def index
-            if params[:mixtape_id] && @mixtape = Mixtape.find_by_id(params[:mixtape_id])
-                @opinions = @mixtape.opinions
-            else
-                flash[:message] = "no tape with that id jack"
-                @opinions = Opinion.all
-            end
-    end
+    # def index
+    #         if params[:mixtape_id] && @mixtape = Mixtape.find_by_id(params[:mixtape_id])
+    #             @opinions = @mixtape.opinions
+    #         else
+    #             flash[:message] = "no tape with that id jack"
+    #             @opinions = Opinion.all
+    #         end
+    # end
 
-    def show
+    # def show
+        
+    #     @mixtape = Mixtape.find_by(id: params[:id])
+    #     @opinion = @mixtape.opinions.find_by(params [:mixtape_id])
 
-        @mixtape = Mixtape.find_by(id: params[:id])
-        @opinion = @mixtape.opinions.find_by(params [:mixtape_id])
-
-    end
+    # end
 
     def new
-        
-        @mixtape = Mixtape.find_by_id(params[:mixtape_id])
+        the_mixtape
+        # @mixtape = Mixtape.find_by_id(params[:mixtape_id])
         @opinion = @mixtape.opinions.build
         @opinions = Opinion.all
     end
@@ -32,6 +32,7 @@ helper_method :the_mixtape, :the_opinion, :the_user
         #binding.pry
         #to do 
         #@opinion = Opinion.new(opinion_params)
+        
         @mixtape = Mixtape.find_by_id(opinion_params[:mixtape_id])
         @opinion = @mixtape.opinions.build(opinion_params)
         if @opinion.save

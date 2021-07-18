@@ -43,6 +43,39 @@ class SessionsController < ApplicationController
 end
 
   def welcome
-    #add some stuff to show on the home page other than login and sign up
+    
   end
+
+
+
+  #SESSIONS CONFIGURATION
+  def omniauth
+    @user = User.find_or_create_by(username: auth[:info][:email]) do |u|
+        u.email = auth[:info][:email]
+        u.username = auth[:info][:email]
+        u.name = auth[:info][:name]
+        u.uid = auth[:uid]
+        u.provider = auth[:provider]
+        u.password = SecureRandom.hex(10)
+    end
+    if @user.valid?
+        flash[:message] = "signed in via Google"
+        session[:user_id] = @user.id
+        redirect_to user_mixtapes_path(current_user)
+
+    else
+        flash[:message] = "bad credientials, check again or sign up!"
+        redirect_to login_path
+    end
+end
+
+private
+
+def auth
+    request.env['omniauth.auth']
+end
+
+
+
+
 end
