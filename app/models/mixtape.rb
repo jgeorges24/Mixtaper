@@ -12,16 +12,16 @@ class Mixtape < ApplicationRecord
 
     scope :most_recent, -> {order created_at: :desc}
 
-    scope :search, -> (query) {where("title LIKE ?", "%#{query}%") }
-
+    
     # def self.most_recent
     #     self.order(created_at: :desc)
     # end
     
     #scope :popular_tape, -> {order opinions.max_by :desc}
-
-
-
+    
+    
+    
+    scope :search, -> (query) {where("title LIKE ?", "%#{query}%") }
 
     def popular_tape
         self.opinions.max_by

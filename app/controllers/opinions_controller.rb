@@ -39,8 +39,10 @@ helper_method :the_mixtape, :the_opinion, :the_user
             flash[:message] = "opinion added"
             redirect_to user_mixtape_path(@mixtape.user, @mixtape)
         else
+            
             flash[:message] = @opinion.errors.full_messages.to_sentence
-            render :new
+            redirect_to user_mixtape_path(@mixtape.user, @mixtape)
+            # render :new, caused and error changed it to redirect insdeat 
         end
     end
 
@@ -66,7 +68,7 @@ helper_method :the_mixtape, :the_opinion, :the_user
     
     # end
 
-    
+
     
 
     private
