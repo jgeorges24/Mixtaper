@@ -1,0 +1,27 @@
+<%= form_with(model: @mixtape, url: user_mixtapes_path) do |f| %>
+    <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    </div>
+    <div class="field">
+    <%= f.label :artist %>
+    <%= f.text_field :artist %>
+    </div>
+    <%= f.hidden_field :user_id %> 
+    <%= f.label :artcover %> <br>
+    <%= f.text_field :artcover %> 
+    
+    <div class="field">
+    <%= f.label :features %><br>
+    <%= f.text_field :features %>
+    </div>
+    
+    <div class="field">
+   
+    <%= f.label :genre %><br>
+    <%= f.text_field :genre %>
+    </div>
+    <br>
+    <%= f.submit 'Create Mixtape' %>
+
+<% end %>
