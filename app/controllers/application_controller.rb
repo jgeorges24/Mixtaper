@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator, :not_mixtape_true_creator, :not_user_opinion, :true_user_opinion, :tape_Opinion_count, :no_go, :the_mixtape, :the_opinion, :the_user
+    helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator, :not_mixtape_true_creator, :no_go, :not_user_opinion, :true_user_opinion, :tape_Opinion_count, :the_mixtape, :the_opinion, :the_user
 
-    before_action :authorized
+    #before_action :authorized
 
     
 
@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
         @current_user ||= User.find_by_id(session[:user_id])
 
     end
+
+
     def logged_in?
         !!current_user
     end

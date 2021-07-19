@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-
+  
+  #homepage static element/page
+     root('sessions#welcome')
+  
   resources :opinions
+
   resources :users, only: [:new, :create] do
     resources :mixtapes
   end
@@ -22,17 +26,15 @@ Rails.application.routes.draw do
   get '/search', to: 'mixtapes#search'
   get '/recent_mixtape', to: 'mixtapes#most_recent'
 
- #homepage static element/page
-    root('sessions#welcome')
-
-        #ominauth
-        get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
-     
-
-
+  
+  #ominauth
+  get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
+  
+  
+  
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  
 
 
 
