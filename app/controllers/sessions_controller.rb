@@ -63,7 +63,7 @@ end
     if @user.valid?
         flash[:message] = "signed in via Google"
         session[:user_id] = @user.id
-        binding.pry
+        #binding.pry
         redirect_to user_mixtapes_path(current_user)
 
     else

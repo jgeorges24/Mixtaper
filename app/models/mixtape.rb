@@ -3,6 +3,7 @@ class Mixtape < ApplicationRecord
 
     belongs_to :user
     has_many :opinions
+    has_many :users, through: :opinions
     
     
 
