@@ -3,23 +3,6 @@ helper_method :the_mixtape, :the_opinion, :the_user
 
     before_action :redirect_if_not_logged, only: [:create, :update, :destroy, :edit]
 
-   
-    # def index
-    #         if params[:mixtape_id] && @mixtape = Mixtape.find_by_id(params[:mixtape_id])
-    #             @opinions = @mixtape.opinions
-    #         else
-    #             flash[:message] = "no tape with that id jack"
-    #             @opinions = Opinion.all
-    #         end
-    # end
-
-    # def show
-        
-    #     @mixtape = Mixtape.find_by(id: params[:id])
-    #     @opinion = @mixtape.opinions.find_by(params [:mixtape_id])
-
-    # end
-
     def new
         the_mixtape
         # @mixtape = Mixtape.find_by_id(params[:mixtape_id])

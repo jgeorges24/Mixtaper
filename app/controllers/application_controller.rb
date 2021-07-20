@@ -77,6 +77,8 @@ class ApplicationController < ActionController::Base
     
         end
 
+        #opinions controller helpers
+
         def the_opinion
 
             @opinion = Opinion.find(params[:id])
@@ -95,9 +97,9 @@ class ApplicationController < ActionController::Base
 
         end
 
-        def authorized
-            redirect_to '/welcome' unless logged_in?
-         end
+        # def authorized
+        #     redirect_to '/welcome' unless logged_in?
+        #  end
 
 
 end

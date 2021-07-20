@@ -26,8 +26,6 @@ class MixtapesController < ApplicationController
 
         @mixtape = Mixtape.new(mixtape_params)
         
-        #@mixtape = current_user.mixtapes.build(mixtape_params)
-        
         if @mixtape.save
             redirect_to user_mixtape_path(current_user, @mixtape)
         else
@@ -64,7 +62,7 @@ class MixtapesController < ApplicationController
 
     def most_recent
         @mixtapes = Mixtape.most_recent
-
+    
     end
 
   
