@@ -13,7 +13,11 @@
             <li class="nav-item">
               <%= link_to 'home', root_path, class: 'nav-link active' %>
             </li>
-
+            
+            <%= form_with(url: search_path, method: 'get', class: 'd-flex') do |f|%>
+                <%= f.text_field :title, class: "form-control me-2", placeholder: "Search for Mixtape" %>
+                <%= f.submit :Submit, class: "form-control me-2" %>
+                <%end%>
             
             <li>
             <%= link_to 'Create Mixtape', new_user_mixtape_path(current_user), class: 'nav-item' %> 
@@ -50,8 +54,5 @@
               
               </div>
               </div>
-              <%= form_with(url: search_path, method: 'get', class: 'd-flex') do |f|%>
-                <%= f.text_field :title, class: "form-control me-2", placeholder: "Search for Mixtape" %>
-                <%= f.submit :Submit, class: "form-control me-2" %>
-                <%end%>
+          
               </nav>

@@ -11,8 +11,4 @@ validates :username, presence: true, uniqueness: true
 validates :password, presence: true, length: { in: 5..30}
 
 
-
-
-
-
 end
