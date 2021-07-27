@@ -1,10 +1,10 @@
 class Mixtape < ApplicationRecord
     validates :title, :artist, presence: true
 
-
+    #access to mixtape's owner
     belongs_to :user
 
-    # this gives me @mixtape.opinions
+    # access to mixtape's opinion
     has_many :opinions 
     
     # gives me @mixtape.users for all the users who gave an opinion

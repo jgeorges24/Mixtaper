@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
     helper_method :current_user, :logged_in?, :logged_out?, :redirect_if_not_logged, :redirect_if_logged, :mixtape_true_creator, :not_mixtape_true_creator, :no_go, :not_user_opinion, :true_user_opinion, :tape_Opinion_count, :the_mixtape, :the_opinion, :the_user
 
 
@@ -30,7 +31,7 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_if_logged
-        #flash[:message] = "already logged in"
+        flash[:message] = "already logged in"
         redirect_to user_mixtapes_path(current_user) if logged_in?
     end
     

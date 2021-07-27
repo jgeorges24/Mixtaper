@@ -1,6 +1,8 @@
-<h1> Your Mixtapes Uploaed <h1>
+<h1>  Mixtapes Uploaded by <%= current_user.name %> </h1>
 
+<br>
 
+<div>
 <ul>
 <% @mixtapes.each do |tap| %>
     <li> <%= link_to(tap.title, user_mixtape_path(tap.user, tap)) %> - created by: <%=tap.user.name %> <br> uploaded - <%=tap.uploaded_at %> </li>

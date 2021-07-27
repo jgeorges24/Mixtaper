@@ -15,7 +15,7 @@ class MixtapesController < ApplicationController
     def show
         @mixtape = Mixtape.find_by(id: params[:id])
         #binding.pry
-        #current_user
+       
     end
 
 
