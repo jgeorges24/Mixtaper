@@ -4,8 +4,6 @@ class MixtapesController < ApplicationController
 
 
     def index
-        #@mixtapes = current_user.mixtapes
-
         @mixtapes = Mixtape.all
         #@current_user ||= User.find_by_id(session[:user_id]) 
     end

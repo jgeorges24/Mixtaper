@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   
   get '/ran_tape', to: 'mixtapes#ran_tape'
   
+  get '/current_user_tape', to: 'mixtapes#current_user_tape'
+  
   
   get '/search', to: 'mixtapes#search'
   get '/recent_mixtape', to: 'mixtapes#most_recent'
