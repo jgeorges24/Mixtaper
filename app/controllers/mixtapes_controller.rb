@@ -34,6 +34,8 @@ class MixtapesController < ApplicationController
         end
     
     end
+
+    
     
     def edit
          
@@ -63,6 +65,11 @@ class MixtapesController < ApplicationController
     def most_recent
         @mixtapes = Mixtape.most_recent
     
+    end
+
+    def ran_tape
+
+        @mixtape = Mixtape.ran_tape
     end
 
   

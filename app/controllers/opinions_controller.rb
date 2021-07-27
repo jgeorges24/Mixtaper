@@ -34,15 +34,10 @@ helper_method :the_mixtape, :the_opinion, :the_user
         the_opinion
         the_mixtape
         the_user
-        # @opinion = Opinion.find(params[:id])
-        # @mixtape = Mixtape.find(@opinion.mixtape.id)
-        # @user = User.find(@opinion.mixtape.user.id)
-        #@opinion = @mixtape.opinions.find(mixtape_id: params[:id])
-        #@opinion = Opinion.find_by(id: params[:id])
         @opinion.destroy
         flash[:message] = "opinion removed"
         redirect_to user_mixtape_path(@user, @mixtape)
-        #try using just tape to test out rails magic
+         
     end
 
     # def popular_tape
