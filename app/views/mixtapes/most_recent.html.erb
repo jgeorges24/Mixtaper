@@ -1,14 +1,20 @@
 <h1>Mixtapes#recent_mixtape</h1>
 
 
+<div class= container>
 
+<h3> random mixtape to listen to </h3>
+
+<%=  @mixtape %>
+    
+</div>
 
 <div class= container>
 <h1> Recent MIXTAPES Uploaded DESCENDING ORDER </h1>
 <ul>
 <% @mixtapes.each do |tap| %>
     <li> <%= link_to(tap.title, user_mixtape_path(tap.user, tap)) %><br> - created by: <%=tap.user.name %> <br> uploaded - <%=tap.uploaded_at %> </li>
-    
-<% end %>
+
+    <% end %>
 </ul>
 </div>

@@ -1,18 +1,23 @@
 class MixtapesController < ApplicationController
+    before_action :mixtape_true_creator,:no_go, only: [:edit, :update]
     before_action :redirect_if_not_logged, only: [:new, :create, :edit, :update, :index, :home, :logout]
 
-    before_action :mixtape_true_creator,:no_go, only: [:edit, :update]
 
     def index
-        #@mixtapes = Mixtape.includes(:user)
-        @mixtapes = current_user.mixtapes
+        #@mixtapes = current_user.mixtapes
+
+        @mixtapes = Mixtape.all
         #@current_user ||= User.find_by_id(session[:user_id]) 
     end
-    
+
+    def current_user_tape
+        @mixtapes = current_user.mixtapes
+    end
+
     def show
         @mixtape = Mixtape.find_by(id: params[:id])
         #binding.pry
-        current_user
+        #current_user
     end
 
 
@@ -64,12 +69,15 @@ class MixtapesController < ApplicationController
 
     def most_recent
         @mixtapes = Mixtape.most_recent
+        @mixtape = Mixtape.ran_tape
     
     end
 
     def ran_tape
-
+        @mixtape = Mixtape.find_by(id: params[:id])
+        
         @mixtape = Mixtape.ran_tape
+        current_user
     end
 
   

@@ -4,7 +4,7 @@
 <ul>
     <% @mixtapes.each do |tap| %>
         
-        <li> <%= link_to tap.title, user_mixtapes_path(current_user,tap) %> </li>
+        <li> <%= link_to tap.title, user_mixtape_path(current_user,tap) %> </li>
         
     <% end %>
 </ul>

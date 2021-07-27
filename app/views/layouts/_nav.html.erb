@@ -19,9 +19,15 @@
                 <%= f.submit :Submit, class: "form-control me-2" %>
                 <%end%>
             
+                <li>
+                <%= link_to 'Random Choice', ran_tape_path, class: 'nav-item' %>
+              </li>
+
             <li>
+
             <%= link_to 'Create Mixtape', new_user_mixtape_path(current_user), class: 'nav-item' %> 
             </li>
+            
             <li>
             <%= link_to 'Recent Release', recent_mixtape_path, class: 'nav-item' %> 
             </li>

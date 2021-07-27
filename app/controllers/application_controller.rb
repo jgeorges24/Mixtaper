@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
 
         @current_user ||= User.find_by_id(session[:user_id])
     end
+    
+    def user
+
+        @user ||= User.find_by_id(session[:user_id])
+
+    end
 
 
     def logged_in?
@@ -95,7 +101,7 @@ class ApplicationController < ActionController::Base
 
         end
 
-        
+
 
         # def authorized
         #     redirect_to '/welcome' unless logged_in?
